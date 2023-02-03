@@ -1,0 +1,21 @@
+server {
+    listen   80;
+    listen   [::]:80;
+    server_name 127.0.0.1;
+
+    root   /home/dan/Developer/Web/CakeProject/webroot;
+    index  index.php;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        include fastcgi_params;
+        fastcgi_pass  unix:/var/run/php/php8.1-dan-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_intercept_errors on;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+}
