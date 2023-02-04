@@ -22,7 +22,11 @@
                     echo $this->Form->control('altText',['required' => false]);
                     echo $this->Form->control('description',['required' => false]);
                     echo $this->Form->control('slug',['required' => false]);
-                    echo $this->Form->control('gallery._ids', ['options' => $gallery]);
+                    echo $this->Form->control('gallery._ids', [
+                        'type' => 'select',
+                        'multiple' => 'checkbox',
+                        'options' => $gallery
+                    ]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

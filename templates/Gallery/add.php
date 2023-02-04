@@ -20,10 +20,13 @@
                 <?php
                     echo $this->Form->control('slug');
                     echo $this->Form->control('name');
-                    echo $this->Form->control('images', [
+                ?>
+
+                <?php
+                    echo $this->Form->control('image._ids', [
                         'type' => 'select',
                         'multiple' => true,
-                        'options' => $images,
+                        'options' => $image,
                     ]);
                 ?>
             </fieldset>

@@ -27,7 +27,11 @@
                     echo $this->Form->control('altText');
                     echo $this->Form->control('description');
                     echo $this->Form->control('slug');
-                    echo $this->Form->control('gallery._ids', ['options' => $gallery]);
+                    echo $this->Form->control('gallery._ids', [
+                        'type' => 'select',
+                        'multiple' => 'checkbox',
+                        'options' => $gallery
+                    ]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

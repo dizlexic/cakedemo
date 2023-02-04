@@ -25,7 +25,11 @@
                 <?php
                     echo $this->Form->control('slug');
                     echo $this->Form->control('name');
-                    echo $this->Form->control('image._ids', ['options' => $image]);
+                    echo $this->Form->control('image._ids', [
+                        'type' => 'select',
+                        'multiple' => 'checkbox',
+                        'options' => $image,
+                    ]);
 
                 ?>
             </fieldset>

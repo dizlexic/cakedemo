@@ -42,7 +42,7 @@ class GalleryTable extends Table
         parent::initialize($config);
 
         $this->setTable('gallery');
-        $this->setDisplayField('id');
+        $this->setDisplayField('name'); // This was such a pain to find
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
