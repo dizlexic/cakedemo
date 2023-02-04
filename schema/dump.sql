@@ -29,7 +29,7 @@ CREATE TABLE `gallery` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `gallery` (
 
 LOCK TABLES `gallery` WRITE;
 /*!40000 ALTER TABLE `gallery` DISABLE KEYS */;
-INSERT INTO `gallery` VALUES (1,'steam-deck','Steam Deck Stuff','2023-02-03 17:15:41','2023-02-03 18:36:47'),(2,'steam-dex-2','steam deck advanced','2023-02-03 18:41:58','2023-02-03 18:42:22');
+INSERT INTO `gallery` VALUES (1,'steam-deck','Steam Deck Stuff','2023-02-03 17:15:41','2023-02-03 18:36:47'),(2,'steam-dex-2','steam deck advanced','2023-02-03 18:41:58','2023-02-04 18:17:06'),(3,'chewie','Chewie','2023-02-04 17:18:49','2023-02-04 18:12:56');
 /*!40000 ALTER TABLE `gallery` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,7 @@ CREATE TABLE `gallery_image` (
 
 LOCK TABLES `gallery_image` WRITE;
 /*!40000 ALTER TABLE `gallery_image` DISABLE KEYS */;
-INSERT INTO `gallery_image` VALUES (1,2),(2,1),(2,2),(3,2);
+INSERT INTO `gallery_image` VALUES (1,1),(1,2),(2,1),(2,2),(3,2),(5,3),(6,3),(7,3),(8,3),(9,3),(10,3),(12,3);
 /*!40000 ALTER TABLE `gallery_image` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +86,7 @@ CREATE TABLE `image` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +95,7 @@ CREATE TABLE `image` (
 
 LOCK TABLES `image` WRITE;
 /*!40000 ALTER TABLE `image` DISABLE KEYS */;
-INSERT INTO `image` VALUES (1,'steamdeck setup.jpeg','image/jpeg',NULL,NULL,'steamdeck setup.jpeg','2023-02-03 17:43:04','2023-02-03 17:43:04'),(2,'typical-cake-request.png','image/png',NULL,NULL,'typical-cake-request.png','2023-02-03 18:22:50','2023-02-03 18:22:50'),(3,'outdoor setup.jpg','image/jpeg',NULL,NULL,'outdoor setup.jpg','2023-02-03 18:23:06','2023-02-03 18:23:06');
+INSERT INTO `image` VALUES (1,'steamdeck setup.jpeg','image/jpeg','','','steamdeck setup.jpeg','2023-02-03 17:43:04','2023-02-04 17:52:22'),(2,'typical-cake-request.png','image/png',NULL,NULL,'typical-cake-request.png','2023-02-03 18:22:50','2023-02-03 18:22:50'),(3,'outdoor setup.jpg','image/jpeg',NULL,NULL,'outdoor setup.jpg','2023-02-03 18:23:06','2023-02-03 18:23:06'),(5,'Screenshot 2023-02-04 at 11-17-06 Celeste Whitlow (@celestewhitlow) • Instagram photos and videos.png','image/png','','','Screenshot 2023-02-04 at 11-17-06 Celeste Whitlow (@celestewhitlow) • Instagram photos and videos.png','2023-02-04 17:22:48','2023-02-04 17:31:36'),(6,'Screenshot 2023-02-04 at 11-17-18 Celeste Whitlow (@celestewhitlow) • Instagram photos and videos.png','image/png',NULL,NULL,'Screenshot 2023-02-04 at 11-17-18 Celeste Whitlow (@celestewhitlow) • Instagram photos and videos.png','2023-02-04 18:00:06','2023-02-04 18:00:06'),(7,'Screenshot 2023-02-04 at 11-17-29 Celeste Whitlow (@celestewhitlow) • Instagram photos and videos.png','image/png',NULL,NULL,'Screenshot 2023-02-04 at 11-17-29 Celeste Whitlow (@celestewhitlow) • Instagram photos and videos.png','2023-02-04 18:00:21','2023-02-04 18:00:21'),(8,'Screenshot 2023-02-04 at 11-17-45 Celeste Whitlow (@celestewhitlow) • Instagram photos and videos.png','image/png',NULL,NULL,'Screenshot 2023-02-04 at 11-17-45 Celeste Whitlow (@celestewhitlow) • Instagram photos and videos.png','2023-02-04 18:00:40','2023-02-04 18:00:40'),(9,'Screenshot 2023-02-04 at 11-17-56 Celeste Whitlow (@celestewhitlow) • Instagram photos and videos.png','image/png',NULL,NULL,'Screenshot 2023-02-04 at 11-17-56 Celeste Whitlow (@celestewhitlow) • Instagram photos and videos.png','2023-02-04 18:00:59','2023-02-04 18:00:59'),(10,'Screenshot 2023-02-04 at 11-18-05 Celeste Whitlow (@celestewhitlow) • Instagram photos and videos.png','image/png',NULL,NULL,'Screenshot 2023-02-04 at 11-18-05 Celeste Whitlow (@celestewhitlow) • Instagram photos and videos.png','2023-02-04 18:01:16','2023-02-04 18:01:16'),(12,'Screenshot 2023-02-04 at 11-18-05 Celeste Whitlow (@celestewhitlow) • Instagram photos and videos.png','image/png',NULL,NULL,'Screenshot 2023-02-04 at 11-18-05 Celeste Whitlow (@celestewhitlow) • Instagram photos and videos.png','2023-02-04 18:12:37','2023-02-04 18:12:37');
 /*!40000 ALTER TABLE `image` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -108,4 +108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-03 14:19:30
+-- Dump completed on 2023-02-04 15:01:14
