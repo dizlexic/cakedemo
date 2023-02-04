@@ -1,0 +1,28 @@
+h2 {
+  line-height: 3;
+  background-color: #2d2d2d;
+  color: #fff;
+  padding-left: 40px;
+  margin-top: 40px;
+}
+
+.view-gallery {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 100px;
+}
+.view-gallery img {
+  max-width: 300px;
+  padding: 20px;
+  transition: opacity 100ms;
+}
+.view-gallery img:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+#gallery-ids, #image-ids, #images {
+  height: auto;
+}

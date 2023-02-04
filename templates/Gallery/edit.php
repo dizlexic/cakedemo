@@ -26,6 +26,7 @@
                     echo $this->Form->control('slug');
                     echo $this->Form->control('name');
                     echo $this->Form->control('image._ids', ['options' => $image]);
+
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

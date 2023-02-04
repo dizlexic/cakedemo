@@ -2,7 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Gallery $gallery
- * @var \Cake\Collection\CollectionInterface|string[] $image
+ * @var \Cake\Collection\CollectionInterface|string[] $images
  */
 ?>
 <div class="row">
