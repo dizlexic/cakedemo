@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Core\Configure;
+
 /**
  * Image Controller
  *
@@ -11,13 +13,13 @@ namespace App\Controller;
  */
 class ImageController extends AppController
 {
+
     public $upload_path = WWW_ROOT . 'uploads/';
     /**
      * Index method
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
-
 
 
     public function index()
@@ -52,20 +54,14 @@ class ImageController extends AppController
         $image = $this->Image->newEmptyEntity();
         if ($this->request->is('post')) {
 
-            $data = $this->request->getData();
-            $uploadFile = $data['file'];
-            $uploadFile->moveTo($this->upload_path .  $data['file']->getClientFilename());
-
-            $image->uploadFile = $uploadFile;
-            $image->type = $uploadFile->getClientMediaType();
-            $image->size = $uploadFile->getSize();
-            $image->file = $uploadFile->getClientFilename();
-            $image->slug = isset($data->slug) ? $data->slug : $image->file;
+            $patched = $this->Image->customPatchData($image, $this->request->getData());
+            $image = $this->Image->patchEntity($patched['entity'], $patched['data']);
 
             if ($this->Image->save($image)) {
-                $this->Flash->success(__('The image has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                if($this->_saveFile($image, $patched['data']['attachment'])) {
+                    $this->Flash->success(__('The image has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                }
             }
             $this->Flash->error(__('The image could not be saved. Please, try again.'));
         }
@@ -92,6 +88,7 @@ class ImageController extends AppController
 
                 return $this->redirect(['action' => 'index']);
             }
+
             $this->Flash->error(__('The image could not be saved. Please, try again.'));
         }
         $gallery = $this->Image->Gallery->find('list', ['limit' => 200])->all();
@@ -143,5 +140,20 @@ class ImageController extends AppController
         $path = $this->upload_path . $image->file;
         $response = $this->response->withFile($path)->withType($image->type);
         return $response;
+    }
+
+    /**
+     * sendFile method
+     *
+     * @param Cake\ORM\Entity\Image| $image unused - future to rename image upload if exists
+     * @param Psr\Http\Message\UploadedFileInterface| $file
+     *
+     * I got distracted playing with custom routes
+     */
+    protected function _saveFile($image, $file) {
+        $config = Configure::read('App');
+        $path = WWW_ROOT . $config['uploadBaseDir'] . $file->getClientFilename();
+        $file->moveTo($path);
+        return true;
     }
 }

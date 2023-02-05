@@ -56,6 +56,20 @@ class ImageTable extends Table
 
     }
 
+    public function customPatchData($entity, $data)
+    {
+        $data['attachment'] = $data['file'];
+        $data['type'] = $data['attachment']->getClientMediaType();
+        $data['file'] = $data['attachment']->getClientFilename();
+
+       $data['slug'] = empty($data['slug']) ? $data['file'] : $data['slug'];
+
+        return [
+            'entity'=>$entity,
+            'data'=>$data,
+        ];
+    }
+
     /**
      * Default validation rules.
      *
@@ -90,6 +104,18 @@ class ImageTable extends Table
             ->requirePresence('slug', 'create')
             ->notEmptyString('slug');
 
+        $validator
+            ->notEmptyFile('attachment')
+            ->add('attachment', [
+                'mimeType' => [
+                    'rule' => ['mimeType',['image/jpg','image/png','image/jpeg']],
+                    'message' => 'File type must be .jpg,.jpeg,.png',
+                ],
+                'fileSize' => [
+                    'rule' => ['fileSize','<', '10MB'],
+                    'message' => 'File size must be less than 10MB',
+                ]
+            ]);
         return $validator;
     }
 }
