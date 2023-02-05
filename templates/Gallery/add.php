@@ -20,9 +20,6 @@
                 <?php
                     echo $this->Form->control('slug');
                     echo $this->Form->control('name');
-                ?>
-
-                <?php
                     echo $this->Form->control('image._ids', [
                         'type' => 'select',
                         'multiple' => true,

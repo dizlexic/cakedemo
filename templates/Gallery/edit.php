@@ -30,7 +30,6 @@
                         'multiple' => 'checkbox',
                         'options' => $image,
                     ]);
-
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
