@@ -17,17 +17,18 @@
             <?= $this->Form->create($image, array('enctype'=>'multipart/form-data')) ?>
             <fieldset>
                 <legend><?= __('Add Image') ?></legend>
-                <?php
-                    echo $this->Form->control('file', ['type'=>'file']);
-                    echo $this->Form->control('altText',['required' => false]);
-                    echo $this->Form->control('description',['required' => false]);
-                    echo $this->Form->control('slug',['required' => false]);
-                    echo $this->Form->control('gallery._ids', [
+
+                    <?= $this->Form->control('file', ['type'=>'file', 'id'=>'upload']) ?>
+                    <img id="preview" src="" alt="">
+                    <?= $this->Form->control('altText',['required' => false]) ?>
+                    <?= $this->Form->control('description',['required' => false]) ?>
+                    <?= $this->Form->control('slug',['required' => false]) ?>
+                    <?= $this->Form->control('gallery._ids', [
                         'type' => 'select',
                         'multiple' => 'checkbox',
                         'options' => $gallery
-                    ]);
-                ?>
+                    ]) ?>
+
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
             <?= $this->Form->end() ?>
