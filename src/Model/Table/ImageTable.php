@@ -43,7 +43,7 @@ class ImageTable extends Table
         parent::initialize($config);
 
         $this->setTable('image');
-        $this->setDisplayField('name'); // smh
+        $this->setDisplayField('file'); // smh
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');

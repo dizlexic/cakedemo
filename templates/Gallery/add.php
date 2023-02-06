@@ -22,7 +22,7 @@
                     echo $this->Form->control('name');
                     echo $this->Form->control('image._ids', [
                         'type' => 'select',
-                        'multiple' => true,
+                        'multiple' => 'checkbox',
                         'options' => $image,
                     ]);
                 ?>

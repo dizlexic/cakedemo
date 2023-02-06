@@ -48,6 +48,7 @@
                         <tr>
                             <th><?= __('Id') ?></th>
                             <th><?= __('File') ?></th>
+                            <th><?= __('Picture') ?></th>
                             <th><?= __('Type') ?></th>
                             <th><?= __('AltText') ?></th>
                             <th><?= __('Description') ?></th>
@@ -60,6 +61,7 @@
                         <tr>
                             <td><?= h($image->id) ?></td>
                             <td><?= h($image->file) ?></td>
+                            <td><img src="/file/<?= h($image->file) ?>" alt=""></td>
                             <td><?= h($image->type) ?></td>
                             <td><?= h($image->altText) ?></td>
                             <td><?= h($image->description) ?></td>

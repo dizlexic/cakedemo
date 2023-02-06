@@ -26,3 +26,14 @@ h2 {
 #gallery-ids, #image-ids, #images {
   height: auto;
 }
+
+#preview {
+  max-width: 100px;
+}
+
+#upload {
+  width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
